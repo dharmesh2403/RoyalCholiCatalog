@@ -124,6 +124,9 @@
         }
       });
     }
+
+    // Initial display of all products when the page loads
+    document.addEventListener('DOMContentLoaded', () => filterProducts('all'));
   </script>
 </head>
 <body>
@@ -138,87 +141,55 @@
     <button onclick="filterProducts('all')" class="active" data-type="all">All</button>
     <button onclick="filterProducts('sarees')" data-type="sarees">Sarees</button>
     <button onclick="filterProducts('dress')" data-type="dress">Dress</button>
-    <button onclick="filterProducts('choli')" data-type="choli">Choli</button>
+    <button onclick="filterProducts('lehenga')" data-type="lehenga">Lehenga</button>
+    <button onclick="filterProducts('kurta')" data-type="kurta">Kurta</button>
   </div>
   <div class="product-grid">
-    <!-- Product 1 -->
+    <!-- Example product: -->
     <div class="product" data-type="sarees">
-      <img src="images/1.jpeg" alt="Product 1">
+      <img src="images/1.jpeg" alt="Saree Image">
       <div class="product-info">
-        <h3>Beautiful Dress</h3>
-        <p>SKU: 001</p>
-        <p class="price">₹999</p>
-        <a
-                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20001%20(Beautiful%20Dress).%20Please%20provide%20details."
-                class="order-btn"
-                target="_blank"
-        >
-          Order Now
-        </a>
+        <h3>Saree Name</h3>
+        <p>Description of the saree.</p>
+        <p class="price">$120.00</p>
+        <a href="#" class="order-btn">Order Now</a>
       </div>
     </div>
-    <!-- Product 2 -->
+    <!-- Add more products like above with appropriate data-type and image path -->
     <div class="product" data-type="dress">
-      <img src="images/2.jpeg" alt="Product 2">
+      <img src="images/2.jpeg" alt="Dress Image">
       <div class="product-info">
-        <h3>Stylish Top</h3>
-        <p>SKU: 002</p>
-        <p class="price">₹1299</p>
-        <a
-                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20002%20(Stylish%20Top).%20Please%20provide%20details."
-                class="order-btn"
-                target="_blank"
-        >
-          Order Now
-        </a>
+        <h3>Dress Name</h3>
+        <p>Description of the dress.</p>
+        <p class="price">$150.00</p>
+        <a href="#" class="order-btn">Order Now</a>
       </div>
     </div>
-    <!-- Product 3 -->
-    <div class="product" data-type="choli">
-      <img src="images/3.jpeg" alt="Product 3">
+    <div class="product" data-type="lehenga">
+      <img src="images/3.jpeg" alt="Lehenga Image">
       <div class="product-info">
-        <h3>Elegant Choli</h3>
-        <p>SKU: 003</p>
-        <p class="price">₹1199</p>
-        <a
-                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Elegant%20Choli).%20Please%20provide%20details."
-                class="order-btn"
-                target="_blank"
-        >
-          Order Now
-        </a>
+        <h3>Lehenga Name</h3>
+        <p>Description of the lehenga.</p>
+        <p class="price">$180.00</p>
+        <a href="#" class="order-btn">Order Now</a>
       </div>
     </div>
-    <!-- Product 4 -->
-    <div class="product" data-type="sarees">
-      <img src="images/4.jpeg" alt="Product 4">
+    <div class="product" data-type="lehenga">
+      <img src="images/4.jpeg" alt="Lehenga Image">
       <div class="product-info">
-        <h3>Classic Saree</h3>
-        <p>SKU: 004</p>
-        <p class="price">₹1599</p>
-        <a
-                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20004%20(Classic%20Saree).%20Please%20provide%20details."
-                class="order-btn"
-                target="_blank"
-        >
-          Order Now
-        </a>
+        <h3>Lehenga Name</h3>
+        <p>Description of the lehenga.</p>
+        <p class="price">$180.00</p>
+        <a href="#" class="order-btn">Order Now</a>
       </div>
     </div>
-    <!-- Product 5 -->
-    <div class="product" data-type="dress">
-      <img src="images/5.jpeg" alt="Product 5">
+    <div class="product" data-type="kurta">
+      <img src="images/5.jpeg" alt="Kurta Image">
       <div class="product-info">
-        <h3>Chic Dress</h3>
-        <p>SKU: 005</p>
-        <p class="price">₹1499</p>
-        <a
-                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20005%20(Chic%20Dress).%20Please%20provide%20details."
-                class="order-btn"
-                target="_blank"
-        >
-          Order Now
-        </a>
+        <h3>Kurta Name</h3>
+        <p>Description of the kurta.</p>
+        <p class="price">$110.00</p>
+        <a href="#" class="order-btn">Order Now</a>
       </div>
     </div>
   </div>
