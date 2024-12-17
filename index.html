@@ -919,12 +919,13 @@ function sendWhatsAppMessage(sku, price) {
     const mobileNum = document.getElementById("mobileNum").value || "N/A";
     const delivery = document.getElementById("delivery").value;
 
-    const message = `Hi, I am interested in SKU: ${encodeURIComponent(sku)}. It costs ${encodeURIComponent(price)}.\n\nDetails:\n     *Name*: ${encodeURIComponent(name)}\n     *Full Address*: ${encodeURIComponent(address)}\n     *Landmark*: ${encodeURIComponent(landmark)}\n     *City*: ${encodeURIComponent(city)}\n     *State*: ${encodeURIComponent(state)}\n     *Pincode*: ${encodeURIComponent(pincode)}\n     *Mobile Number*: ${encodeURIComponent(mobileNum)}\n     *Order Delivery*: ${delivery === "1" ? "Cash On Delivery (+₹100 Extra)" : "Online Payment"}`;
+    const message = `Hi, I am interested in SKU: ${encodeURIComponent(sku)}. It costs ${encodeURIComponent(price)}.\n\nDetails:\n          *Name*: ${encodeURIComponent(name)}\n          *Full Address*: ${encodeURIComponent(address)}\n          *Landmark*: ${encodeURIComponent(landmark)}\n          *City*: ${encodeURIComponent(city)}\n          *State*: ${encodeURIComponent(state)}\n          *Pincode*: ${encodeURIComponent(pincode)}\n          *Mobile Number*: ${encodeURIComponent(mobileNum)}\n          *Order Delivery*: ${delivery === "1" ? "Cash On Delivery (+₹100 Extra)" : "Online Payment"}`;
 
     const whatsappLink = `https://wa.me/+919879868265?text=${message}`;
 
     window.open(whatsappLink, "_blank");
 }
+
 
 
 
