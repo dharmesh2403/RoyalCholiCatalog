@@ -24,22 +24,16 @@
     .header h1 {
       color: #333;
     }
-    .filter-buttons {
+    .search-bar {
       text-align: center;
       margin-bottom: 20px;
     }
-    .filter-buttons button {
-      padding: 10px 20px;
-      margin: 5px;
-      background-color: #28a745;
-      color: white;
-      border: none;
+    .search-bar input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ddd;
       border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-    .filter-buttons button.active {
-      background-color: #20b858;
+      font-size: 1em;
     }
     .product-grid {
       display: flex;
@@ -85,10 +79,9 @@
       text-decoration: none;
       font-size: 1em;
       border-radius: 5px;
-      transition: background-color 0.3s;
     }
     .order-btn:hover {
-      background-color: #20b354;
+      background-color: #1da851;
     }
   </style>
 </head>
@@ -97,78 +90,310 @@
   <div class="header">
     <h1>Royal Choli Catalog</h1>
   </div>
-  <div class="filter-buttons">
-    <button onclick="filterProducts('all')" class="active">All</button>
-    <button onclick="filterProducts('Sarees')">Sarees</button>
-    <button onclick="filterProducts('Dress')">Dress</button>
-    <button onclick="filterProducts('Choli')">Choli</button>
+  <div class="search-bar">
+    <input type="text" id="search-input" onkeyup="searchProducts()" placeholder="Search products...">
   </div>
-  <div class="product-grid">
-    <div class="product" data-category="Sarees">
-      <img src="images/1.jpeg" alt="Beautiful Saree">
+  <div class="product-grid" id="product-grid">
+    <!-- BANDHANI Product 1 -->
+    <div class="product">
+      <img src="images/BANDHANI/BANDHANI%20GREEN.jpeg" alt="Product 1">
       <div class="product-info">
-        <h3>Beautiful Saree</h3>
-        <p class="price">₹1500</p>
-        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20S001%20(Beautiful%20Saree).%20Please%20provide%20details." class="order-btn" target="_blank">Order Now</a>
+        <p>SKU: BANDHANI GREEN</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20001%20(Beautiful%20Dress).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
       </div>
     </div>
-    <div class="product" data-category="Dress">
-      <img src="images/2.jpeg" alt="Beautiful Dress">
+    <!--BANDHANI Product 2 -->
+    <div class="product">
+      <img src="images/BANDHANI/BANDHANI%20PINK.jpeg" alt="Product 2">
       <div class="product-info">
-        <h3>Beautiful Dress</h3>
-        <p class="price">₹2000</p>
-        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20D001%20(Beautiful%20Dress).%20Please%20provide%20details." class="order-btn" target="_blank">Order Now</a>
+        <p>SKU: BANDHANI PINK</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20002%20(Elegant%20Saree).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
       </div>
     </div>
-    <div class="product" data-category="Choli">
-      <img src="images/3.jpeg" alt="Elegant Choli">
+    <!-- BANDHANI Product 3 -->
+    <div class="product">
+      <img src="images/BANDHANI/BANDHANI%20RED.jpeg" alt="Product 3">
       <div class="product-info">
-        <h3>Elegant Choli</h3>
-        <p class="price">₹1800</p>
-        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20C001%20(Elegant%20Choli).%20Please%20provide%20details." class="order-btn" target="_blank">Order Now</a>
+        <p>SKU: BANDHANI RED</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
       </div>
     </div>
-    <div class="product" data-category="Sarees">
-      <img src="images/4.jpeg" alt="Designer Saree">
+    <!--BANDHANI Product 4 -->
+    <div class="product">
+      <img src="images/BANDHANI/BANDHANI%20YELLOW.jpeg" alt="Product 4">
       <div class="product-info">
-        <h3>Designer Saree</h3>
-        <p class="price">₹2500</p>
-        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20S002%20(Designer%20Saree).%20Please%20provide%20details." class="order-btn" target="_blank">Order Now</a>
+        <p>SKU: BANDHANI YELLOW</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
       </div>
     </div>
-    <div class="product" data-category="Dress">
-      <img src="images/5.jpeg" alt="Party Wear Dress">
+
+    <!-- LITO Product 1 -->
+    <div class="product">
+      <img src="images/LITO/LITO%20FIROZI.jpeg" alt="Product 1">
       <div class="product-info">
-        <h3>Party Wear Dress</h3>
-        <p class="price">₹3000</p>
-        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20D002%20(Party%20Wear%20Dress).%20Please%20provide%20details." class="order-btn" target="_blank">Order Now</a>
+        <p>SKU: LITO FIROZI</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20001%20(Beautiful%20Dress).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
       </div>
     </div>
+    <!--LITO Product 2 -->
+    <div class="product">
+      <img src="images/LITO/LITO%20MAROON.jpeg" alt="Product 2">
+      <div class="product-info">
+        <p>SKU: LITO MAROON</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20002%20(Elegant%20Saree).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+    <!-- LITO Product 3 -->
+    <div class="product">
+      <img src="images/LITO/LITO%20PINK.jpeg" alt="Product 3">
+      <div class="product-info">
+        <p>SKU: LITO PINK</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+    <!--LITO Product 4 -->
+    <div class="product">
+      <img src="images/LITO/LITO%20YELLOW.jpeg" alt="Product 4">
+      <div class="product-info">
+        <p>SKU: LITO YELLOW</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <!-- BINDI Product 1 -->
+    <div class="product">
+      <img src="images/BINDI/BINDI%20BLACK.jpeg" alt="Product 1">
+      <div class="product-info">
+        <p>SKU: BINDI BLACK</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20001%20(Beautiful%20Dress).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+    <!--BINDI Product 2 -->
+    <div class="product">
+      <img src="images/BINDI/BINDI%20MAROON.jpeg" alt="Product 2">
+      <div class="product-info">
+        <p>SKU: BINDI MAROON</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20002%20(Elegant%20Saree).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+    <!-- BINDI Product 3 -->
+    <div class="product">
+      <img src="images/BINDI/BINDI%20PURPLE.jpeg" alt="Product 3">
+      <div class="product-info">
+        <p>SKU: BINDI PURPLE</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+    <!--BINDI Product 4 -->
+    <div class="product">
+      <img src="images/BINDI/BINDI%20WHITE.jpeg" alt="Product 4">
+      <div class="product-info">
+        <p>SKU: BINDI WHITE</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <!-- MIRROR Product 1 -->
+    <div class="product">
+      <img src="images/MIRROR/MIRROR%20BLUE.jpeg" alt="Product 1">
+      <div class="product-info">
+        <p>SKU: MIRROR BLUE</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20001%20(Beautiful%20Dress).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+    <!--MIRROR Product 2 -->
+    <div class="product">
+      <img src="images/MIRROR/MIRROR%20GREEN.jpeg" alt="Product 2">
+      <div class="product-info">
+        <p>SKU: MIRROR GREEN</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20002%20(Elegant%20Saree).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+    <!-- MIRROR Product 3 -->
+    <div class="product">
+      <img src="images/MIRROR/MIRROR%20NEVY%20BLUE.jpeg" alt="Product 3">
+      <div class="product-info">
+        <p>SKU: MIRROR NEVY BLUE</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <!-- MIRROR Product 4 -->
+    <div class="product">
+      <img src="images/MIRROR/MIRROR%20PURPLE.jpeg" alt="Product 4">
+      <div class="product-info">
+        <p>SKU: MIRROR PURPLE</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20001%20(Beautiful%20Dress).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <!-- MIRROR Product 5 -->
+    <div class="product">
+      <img src="images/MIRROR/MIRROR%20WHITE.jpeg" alt="Product 5">
+      <div class="product-info">
+        <p>SKU: MIRROR WHITE</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+    <!--MIRROR Product 6 -->
+    <div class="product">
+      <img src="images/MIRROR/MIRROR%20YELLOW.jpeg" alt="Product 6">
+      <div class="product-info">
+        <p>SKU: MIRROR YELLOW</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <!--BANSARI Product 1 -->
+    <div class="product">
+      <img src="images/BANSARI/BANSARI%20ORANGE.jpeg" alt="Product 1">
+      <div class="product-info">
+        <p>SKU: BANSARI ORANGE</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20002%20(Elegant%20Saree).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <!--BANSARI Product 2 -->
+    <div class="product">
+      <img src="images/BANSARI/BANSARI%20PINK.jpeg" alt="Product 2">
+      <div class="product-info">
+        <p>SKU: BANSARI PINK</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <!--BANSARI Product 3 -->
+    <div class="product">
+      <img src="images/BANSARI/BANSARI%20PURPLE.jpeg"Product 3">
+      <div class="product-info">
+        <p>SKU: BANSARI PURPLE</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20002%20(Elegant%20Saree).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <!--BANSARI Product 4 -->
+    <div class="product">
+      <img src="images/BANSARI/BANSARI%20RED.jpeg" alt="Product 4">
+      <div class="product-info">
+        <p>SKU: BANSARI RED</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <!-- PARI Product 1 -->
+    <div class="product">
+      <img src="images/PARI/PARI%20MULTI.jpeg" alt="Product 1">
+      <div class="product-info">
+        <p>SKU: PARI MULTI</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20001%20(Beautiful%20Dress).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+    <!--PARI Product 2 -->
+    <div class="product">
+      <img src="images/PARI/PARI%20PINK.jpeg" alt="Product 2">
+      <div class="product-info">
+        <p>SKU: PARI PINK</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20002%20(Elegant%20Saree).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+    <!-- PARI Product 3 -->
+    <div class="product">
+      <img src="images/PARI/PARI%20PURPLE.jpeg" alt="Product 3">
+      <div class="product-info">
+        <p>SKU: PARI PURPLE</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <!-- PARI Product 4 -->
+    <div class="product">
+      <img src="images/PARI/PARI%20RED.jpeg" alt="Product 4">
+      <div class="product-info">
+        <p>SKU: PARI RED</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20001%20(Beautiful%20Dress).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
+    <!-- PARI Product 5 -->
+    <div class="product">
+      <img src="images/PARI/PARI%20WHITE.jpeg" alt="Product 5">
+      <div class="product-info">
+        <p>SKU: PARI WHITE</p>
+        <p class="price">₹999</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Royal%20Choli).%20Please%20provide%20details."
+           class="order-btn" target="_blank">Order Now</a>
+      </div>
+    </div>
+
   </div>
 </div>
+
 <script>
-  function filterProducts(category) {
-    const buttons = document.querySelectorAll('.filter-buttons button');
-    const products = document.querySelectorAll('.product');
+  function searchProducts() {
+    const input = document.getElementById("search-input").value.toLowerCase();
+    const products = document.getElementsByClassName("product");
 
-    buttons.forEach(button => {
-      button.classList.remove('active');
-      if (button.textContent === category || (category === 'all' && button.textContent === 'All')) {
-        button.classList.add('active');
-      }
-    });
-
-    products.forEach(product => {
-      if (category === 'all' || product.getAttribute('data-category') === category) {
-        product.style.display = 'block';
+    for (let i = 0; i < products.length; i++) {
+      const productSKU = products[i].getElementsByTagName("p")[0].innerText.toLowerCase(); // First <p> tag contains the SKU
+      if (productSKU.includes(input)) {
+        products[i].style.display = "block";
       } else {
-        product.style.display = 'none';
+        products[i].style.display = "none";
       }
-    });
+    }
   }
-
-  // Show all products on page load
-  window.onload = () => filterProducts('all');
 </script>
 </body>
 </html>
