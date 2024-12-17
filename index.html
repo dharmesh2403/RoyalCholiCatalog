@@ -24,6 +24,17 @@
     .header h1 {
       color: #333;
     }
+    .search-bar {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .search-bar input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 1em;
+    }
     .product-grid {
       display: flex;
       flex-wrap: wrap;
@@ -74,11 +85,31 @@
       background-color: #20b858;
     }
   </style>
+  <script>
+    function filterProducts() {
+      const input = document.getElementById('search-input').value.toLowerCase();
+      const products = document.querySelectorAll('.product');
+
+      products.forEach(product => {
+        const name = product.querySelector('h3').innerText.toLowerCase();
+        const sku = product.querySelector('p').innerText.toLowerCase();
+
+        if (name.includes(input) || sku.includes(input)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </head>
 <body>
 <div class="container">
   <div class="header">
     <h1>Clothing Catalog</h1>
+  </div>
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search by name or SKU" onkeyup="filterProducts()">
   </div>
   <div class="product-grid">
     <!-- Product 1 -->
