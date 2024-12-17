@@ -35,6 +35,23 @@
       border-radius: 5px;
       font-size: 1em;
     }
+    .filter-buttons {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .filter-buttons button {
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .filter-buttons button.active {
+      background-color: #20b858;
+    }
     .product-grid {
       display: flex;
       flex-wrap: wrap;
@@ -49,6 +66,7 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       width: 300px;
       text-align: center;
+      display: none; /* Initially hidden */
     }
     .product img {
       width: 100%;
@@ -86,15 +104,20 @@
     }
   </style>
   <script>
-    function filterProducts() {
-      const input = document.getElementById('search-input').value.toLowerCase();
+    function filterProducts(type) {
       const products = document.querySelectorAll('.product');
+      const buttons = document.querySelectorAll('.filter-buttons button');
 
+      // Set all buttons to inactive
+      buttons.forEach(button => button.classList.remove('active'));
+
+      // Activate the clicked button
+      document.querySelector(`button[data-type="${type}"]`).classList.add('active');
+
+      // Show/hide products based on the selected type
       products.forEach(product => {
-        const name = product.querySelector('h3').innerText.toLowerCase();
-        const sku = product.querySelector('p').innerText.toLowerCase();
-
-        if (name.includes(input) || sku.includes(input)) {
+        const productType = product.getAttribute('data-type').toLowerCase();
+        if (type === 'all' || productType === type) {
           product.style.display = 'block';
         } else {
           product.style.display = 'none';
@@ -111,9 +134,15 @@
   <div class="search-bar">
     <input type="text" id="search-input" placeholder="Search by name or SKU" onkeyup="filterProducts()">
   </div>
+  <div class="filter-buttons">
+    <button onclick="filterProducts('all')" class="active" data-type="all">All</button>
+    <button onclick="filterProducts('sarees')" data-type="sarees">Sarees</button>
+    <button onclick="filterProducts('dress')" data-type="dress">Dress</button>
+    <button onclick="filterProducts('choli')" data-type="choli">Choli</button>
+  </div>
   <div class="product-grid">
     <!-- Product 1 -->
-    <div class="product">
+    <div class="product" data-type="sarees">
       <img src="images/1.jpeg" alt="Product 1">
       <div class="product-info">
         <h3>Beautiful Dress</h3>
@@ -129,12 +158,12 @@
       </div>
     </div>
     <!-- Product 2 -->
-    <div class="product">
+    <div class="product" data-type="dress">
       <img src="images/2.jpeg" alt="Product 2">
       <div class="product-info">
         <h3>Stylish Top</h3>
         <p>SKU: 002</p>
-        <p class="price">₹699</p>
+        <p class="price">₹1299</p>
         <a
                 href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20002%20(Stylish%20Top).%20Please%20provide%20details."
                 class="order-btn"
@@ -145,14 +174,14 @@
       </div>
     </div>
     <!-- Product 3 -->
-    <div class="product">
+    <div class="product" data-type="choli">
       <img src="images/3.jpeg" alt="Product 3">
       <div class="product-info">
-        <h3>Casual Shirt</h3>
+        <h3>Elegant Choli</h3>
         <p>SKU: 003</p>
-        <p class="price">₹499</p>
+        <p class="price">₹1199</p>
         <a
-                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Casual%20Shirt).%20Please%20provide%20details."
+                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20003%20(Elegant%20Choli).%20Please%20provide%20details."
                 class="order-btn"
                 target="_blank"
         >
@@ -161,14 +190,14 @@
       </div>
     </div>
     <!-- Product 4 -->
-    <div class="product">
+    <div class="product" data-type="sarees">
       <img src="images/4.jpeg" alt="Product 4">
       <div class="product-info">
-        <h3>Elegant Saree</h3>
+        <h3>Classic Saree</h3>
         <p>SKU: 004</p>
-        <p class="price">₹1499</p>
+        <p class="price">₹1599</p>
         <a
-                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20004%20(Elegant%20Saree).%20Please%20provide%20details."
+                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20004%20(Classic%20Saree).%20Please%20provide%20details."
                 class="order-btn"
                 target="_blank"
         >
@@ -177,14 +206,14 @@
       </div>
     </div>
     <!-- Product 5 -->
-    <div class="product">
+    <div class="product" data-type="dress">
       <img src="images/5.jpeg" alt="Product 5">
       <div class="product-info">
-        <h3>Denim Jeans</h3>
+        <h3>Chic Dress</h3>
         <p>SKU: 005</p>
-        <p class="price">₹899</p>
+        <p class="price">₹1499</p>
         <a
-                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20005%20(Denim%20Jeans).%20Please%20provide%20details."
+                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20005%20(Chic%20Dress).%20Please%20provide%20details."
                 class="order-btn"
                 target="_blank"
         >
