@@ -79,9 +79,69 @@
       text-decoration: none;
       font-size: 1em;
       border-radius: 5px;
+      cursor: pointer;
     }
     .order-btn:hover {
       background-color: #1da851;
+    }
+    /* Popup styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+    }
+    .popup-content h2 {
+      margin-top: 0;
+      color: #333;
+      text-align: center;
+    }
+    .popup-content .form-group {
+      margin-bottom: 10px;
+    }
+    .popup-content label {
+      display: block;
+      font-size: 0.9em;
+      margin-bottom: 5px;
+    }
+    .popup-content input,
+    .popup-content select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    .popup-buttons {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .popup-buttons button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .close-btn {
+      background-color: #f44336;
+      color: white;
+    }
+    .send-btn {
+      background-color: #25d366;
+      color: white;
     }
   </style>
 </head>
@@ -91,43 +151,53 @@
     <h1>Royal Choli Catalog</h1>
   </div>
   <div class="search-bar">
-    <input type="text" id="search-input" onkeyup="searchProducts()" placeholder="Search products...">
+    <input type="text" id="search-input" placeholder="Search by SKU..." onkeyup="searchProducts()">
   </div>
   <div class="product-grid" id="product-grid">
-    <!-- BANDHANI Product 1 -->
+    <!-- BANDHANI Products 1-->
     <div class="product">
-      <img src="images/BANDHANI/BANDHANI%20GREEN.jpeg" alt="Product 1">
+      <img src="images/BANDHANI/BANDHANI%20GREEN.jpeg" alt="BANDHANI GREEN">
       <div class="product-info">
+        <h3>BANDHANI GREEN</h3>
         <p>SKU: BANDHANI GREEN</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('BANDHANI GREEN', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--BANDHANI Product 2 -->
+
+    <!-- BANDHANI Products 2-->
+
     <div class="product">
-      <img src="images/BANDHANI/BANDHANI%20PINK.jpeg" alt="Product 2">
+      <img src="images/BANDHANI/BANDHANI%20PINK.jpeg" alt="BANDHANI PINK">
       <div class="product-info">
+        <h3>BANDHANI PINK</h3>
         <p>SKU: BANDHANI PINK</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('BANDHANI PINK', '₹999')">Order Now</button>
       </div>
     </div>
-    <!-- BANDHANI Product 3 -->
+
+    <!-- BANDHANI Products 3-->
+
     <div class="product">
-      <img src="images/BANDHANI/BANDHANI%20RED.jpeg" alt="Product 3">
+      <img src="images/BANDHANI/BANDHANI%20RED.jpeg" alt="BANDHANI RED">
       <div class="product-info">
+        <h3>BANDHANI RED</h3>
         <p>SKU: BANDHANI RED</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('BANDHANI RED', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--BANDHANI Product 4 -->
+
+    <!-- BANDHANI Products 4-->
+
     <div class="product">
-      <img src="images/BANDHANI/BANDHANI%20YELLOW.jpeg" alt="Product 4">
+      <img src="images/BANDHANI/BANDHANI%20YELLOW.jpeg" alt="BANDHANI YELLOW">
       <div class="product-info">
+        <h3>BANDHANI YELLOW</h3>
         <p>SKU: BANDHANI YELLOW</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('BANDHANI YELLOW', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -137,16 +207,16 @@
       <div class="product-info">
         <p>SKU: LITO FIROZI</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" target="_blank" onclick="openPopup('LITO FIROZI', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--LITO Product 2 -->
+    <!-- LITO Product 2 -->
     <div class="product">
       <img src="images/LITO/LITO%20MAROON.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: LITO MAROON</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" target="_blank" onclick="openPopup('LITO MAROON', '₹999')">Order Now</button>
       </div>
     </div>
     <!-- LITO Product 3 -->
@@ -155,16 +225,16 @@
       <div class="product-info">
         <p>SKU: LITO PINK</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" target="_blank" onclick="openPopup('LITO PINK', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--LITO Product 4 -->
+    <!-- LITO Product 4 -->
     <div class="product">
       <img src="images/LITO/LITO%20YELLOW.jpeg" alt="Product 4">
       <div class="product-info">
         <p>SKU: LITO YELLOW</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" target="_blank" onclick="openPopup('LITO YELLOW', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -174,16 +244,16 @@
       <div class="product-info">
         <p>SKU: BINDI BLACK</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" target="_blank" onclick="openPopup('BINDI BLACK', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--BINDI Product 2 -->
+    <!-- BINDI Product 2 -->
     <div class="product">
       <img src="images/BINDI/BINDI%20MAROON.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: BINDI MAROON</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" target="_blank" onclick="openPopup('BINDI MAROON', '₹999')">Order Now</button>
       </div>
     </div>
     <!-- BINDI Product 3 -->
@@ -192,16 +262,16 @@
       <div class="product-info">
         <p>SKU: BINDI PURPLE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" target="_blank" onclick="openPopup('BINDI PURPLE', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--BINDI Product 4 -->
+    <!-- BINDI Product 4 -->
     <div class="product">
       <img src="images/BINDI/BINDI%20WHITE.jpeg" alt="Product 4">
       <div class="product-info">
         <p>SKU: BINDI WHITE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" target="_blank" onclick="openPopup('BINDI WHITE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -211,25 +281,27 @@
       <div class="product-info">
         <p>SKU: MIRROR BLUE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('MIRROR BLUE', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--MIRROR Product 2 -->
+
+    <!-- MIRROR Product 2 -->
     <div class="product">
       <img src="images/MIRROR/MIRROR%20GREEN.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: MIRROR GREEN</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('MIRROR GREEN', '₹999')">Order Now</button>
       </div>
     </div>
+
     <!-- MIRROR Product 3 -->
     <div class="product">
       <img src="images/MIRROR/MIRROR%20NEVY%20BLUE.jpeg" alt="Product 3">
       <div class="product-info">
         <p>SKU: MIRROR NEVY BLUE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('MIRROR NEVY BLUE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -239,7 +311,7 @@
       <div class="product-info">
         <p>SKU: MIRROR PURPLE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('MIRROR PURPLE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -249,56 +321,57 @@
       <div class="product-info">
         <p>SKU: MIRROR WHITE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('MIRROR WHITE', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--MIRROR Product 6 -->
+
+    <!-- MIRROR Product 6 -->
     <div class="product">
       <img src="images/MIRROR/MIRROR%20YELLOW.jpeg" alt="Product 6">
       <div class="product-info">
         <p>SKU: MIRROR YELLOW</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('MIRROR YELLOW', '₹999')">Order Now</button>
       </div>
     </div>
 
-    <!--BANSARI Product 1 -->
+    <!-- BANSARI Product 1 -->
     <div class="product">
       <img src="images/BANSARI/BANSARI%20ORANGE.jpeg" alt="Product 1">
       <div class="product-info">
         <p>SKU: BANSARI ORANGE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('BANSARI ORANGE', '₹999')">Order Now</button>
       </div>
     </div>
 
-    <!--BANSARI Product 2 -->
+    <!-- BANSARI Product 2 -->
     <div class="product">
       <img src="images/BANSARI/BANSARI%20PINK.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: BANSARI PINK</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('BANSARI PINK', '₹999')">Order Now</button>
       </div>
     </div>
 
-    <!--BANSARI Product 3 -->
+    <!-- BANSARI Product 3 -->
     <div class="product">
-      <img src="images/BANSARI/BANSARI%20PURPLE.jpeg"Product 3">
+      <img src="images/BANSARI/BANSARI%20PURPLE.jpeg" alt="Product 3">
       <div class="product-info">
         <p>SKU: BANSARI PURPLE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('BANSARI PURPLE', '₹999')">Order Now</button>
       </div>
     </div>
 
-    <!--BANSARI Product 4 -->
+    <!-- BANSARI Product 4 -->
     <div class="product">
       <img src="images/BANSARI/BANSARI%20RED.jpeg" alt="Product 4">
       <div class="product-info">
         <p>SKU: BANSARI RED</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('BANSARI RED', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -308,25 +381,27 @@
       <div class="product-info">
         <p>SKU: PARI MULTI</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('PARI MULTI', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--PARI Product 2 -->
+
+    <!-- PARI Product 2 -->
     <div class="product">
       <img src="images/PARI/PARI%20PINK.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: PARI PINK</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('PARI PINK', '₹999')">Order Now</button>
       </div>
     </div>
+
     <!-- PARI Product 3 -->
     <div class="product">
       <img src="images/PARI/PARI%20PURPLE.jpeg" alt="Product 3">
       <div class="product-info">
         <p>SKU: PARI PURPLE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('PARI PURPLE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -336,7 +411,7 @@
       <div class="product-info">
         <p>SKU: PARI RED</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('PARI RED', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -346,7 +421,7 @@
       <div class="product-info">
         <p>SKU: PARI WHITE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('PARI WHITE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -356,25 +431,27 @@
       <div class="product-info">
         <p>SKU: CHERY GREY</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('CHERY GREY', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--CHERY Product 2 -->
+
+    <!-- CHERY Product 2 -->
     <div class="product">
       <img src="images/CHERY/CHERY%20MAROON.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: CHERY MAROON</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('CHERY MAROON', '₹999')">Order Now</button>
       </div>
     </div>
+
     <!-- CHERY Product 3 -->
     <div class="product">
-      <img src="images/CHERY/CHERY%20PINK.jpeg"Product 3">
+      <img src="images/CHERY/CHERY%20PINK.jpeg" alt="Product 3">
       <div class="product-info">
         <p>SKU: CHERY PINK</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('CHERY PINK', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -384,7 +461,7 @@
       <div class="product-info">
         <p>SKU: CHERY YELLOW</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('CHERY YELLOW', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -394,25 +471,27 @@
       <div class="product-info">
         <p>SKU: DAAMAN BLUE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('DAAMAN BLUE', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--DAAMAN Product 2 -->
+
+    <!-- DAAMAN Product 2 -->
     <div class="product">
       <img src="images/DAAMAN/DAAMAN%20GREEN.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: DAAMAN GREEN</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('DAAMAN GREEN', '₹999')">Order Now</button>
       </div>
     </div>
+
     <!-- DAAMAN Product 3 -->
     <div class="product">
-      <img src="images/DAAMAN/DAAMAN%20PINK.jpeg"Product 3">
+      <img src="images/DAAMAN/DAAMAN%20PINK.jpeg" alt="Product 3">
       <div class="product-info">
         <p>SKU: DAAMAN PINK</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('DAAMAN PINK', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -422,7 +501,7 @@
       <div class="product-info">
         <p>SKU: DAAMAN RED</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('DAAMAN RED', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -432,25 +511,27 @@
       <div class="product-info">
         <p>SKU: GOLO BLACK</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('GOLO BLACK', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--GOLO Product 2 -->
+
+    <!-- GOLO Product 2 -->
     <div class="product">
       <img src="images/GOLO/GOLO%20BLUE.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: GOLO BLUE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('GOLO BLUE', '₹999')">Order Now</button>
       </div>
     </div>
+
     <!-- GOLO Product 3 -->
     <div class="product">
-      <img src="images/GOLO/GOLO%20GREEN.jpeg"Product 3">
+      <img src="images/GOLO/GOLO%20GREEN.jpeg" alt="Product 3">
       <div class="product-info">
         <p>SKU: GOLO GREEN</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('GOLO GREEN', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -460,7 +541,7 @@
       <div class="product-info">
         <p>SKU: GOLO WINE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('GOLO WINE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -470,25 +551,27 @@
       <div class="product-info">
         <p>SKU: WELL GREEN</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('WELL GREEN', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--WELL Product 2 -->
+
+    <!-- WELL Product 2 -->
     <div class="product">
       <img src="images/WELL/WELL%20MAROON.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: WELL MAROON</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('WELL MAROON', '₹999')">Order Now</button>
       </div>
     </div>
+
     <!-- WELL Product 3 -->
     <div class="product">
-      <img src="images/WELL/WELL%20ORANGE.jpeg"Product 3">
+      <img src="images/WELL/WELL%20ORANGE.jpeg" alt="Product 3">
       <div class="product-info">
         <p>SKU: WELL ORANGE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('WELL ORANGE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -498,7 +581,7 @@
       <div class="product-info">
         <p>SKU: WELL RAMA</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('WELL RAMA', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -508,25 +591,27 @@
       <div class="product-info">
         <p>SKU: TILAK BLACK</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('TILAK BLACK', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--TILAK Product 2 -->
+
+    <!-- TILAK Product 2 -->
     <div class="product">
       <img src="images/TILAK/TILAK%20GREEN.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: TILAK GREEN</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('TILAK GREEN', '₹999')">Order Now</button>
       </div>
     </div>
+
     <!-- TILAK Product 3 -->
     <div class="product">
-      <img src="images/TILAK/TILAK%20ORANGE.jpeg"Product 3">
+      <img src="images/TILAK/TILAK%20ORANGE.jpeg" alt="Product 3">
       <div class="product-info">
         <p>SKU: TILAK ORANGE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('TILAK ORANGE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -536,7 +621,7 @@
       <div class="product-info">
         <p>SKU: TILAK PURPLE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('TILAK PURPLE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -546,25 +631,27 @@
       <div class="product-info">
         <p>SKU: SUNRISE GREEN</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('SUNRISE GREEN', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--SUNRISE Product 2 -->
+
+    <!-- SUNRISE Product 2 -->
     <div class="product">
       <img src="images/SUNRISE/SUNRISE%20MAROON.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: SUNRISE MAROON</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('SUNRISE MAROON', '₹999')">Order Now</button>
       </div>
     </div>
+
     <!-- SUNRISE Product 3 -->
     <div class="product">
-      <img src="images/SUNRISE/SUNRISE%20NEVY%20BLUE.jpeg"Product 3">
+      <img src="images/SUNRISE/SUNRISE%20NEVY%20BLUE.jpeg" alt="Product 3">
       <div class="product-info">
         <p>SKU: SUNRISE NEVY BLUE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('SUNRISE NEVY BLUE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -574,7 +661,7 @@
       <div class="product-info">
         <p>SKU: SUNRISE WINE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('SUNRISE WINE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -584,25 +671,27 @@
       <div class="product-info">
         <p>SKU: ROSE BLUE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('ROSE BLUE', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--ROSE Product 2 -->
+
+    <!-- ROSE Product 2 -->
     <div class="product">
       <img src="images/ROSE/ROSE%20GREEN.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: ROSE GREEN</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('ROSE GREEN', '₹999')">Order Now</button>
       </div>
     </div>
+
     <!-- ROSE Product 3 -->
     <div class="product">
-      <img src="images/ROSE/ROSE%20RED.jpeg"Product 3">
+      <img src="images/ROSE/ROSE%20RED.jpeg" alt="Product 3">
       <div class="product-info">
         <p>SKU: ROSE RED</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('ROSE RED', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -612,7 +701,7 @@
       <div class="product-info">
         <p>SKU: ROSE WINE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('ROSE WINE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -622,25 +711,27 @@
       <div class="product-info">
         <p>SKU: PANETAR GREEN</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('PANETAR GREEN', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--PANETAR Product 2 -->
+
+    <!-- PANETAR Product 2 -->
     <div class="product">
       <img src="images/PANETAR/PANETAR%20PINK.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: PANETAR PINK</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('PANETAR PINK', '₹999')">Order Now</button>
       </div>
     </div>
+
     <!-- PANETAR Product 3 -->
     <div class="product">
-      <img src="images/PANETAR/PANETAR%20PURPLE.jpeg"Product 3">
+      <img src="images/PANETAR/PANETAR%20PURPLE.jpeg" alt="Product 3">
       <div class="product-info">
         <p>SKU: PANETAR PURPLE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('PANETAR PURPLE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -650,7 +741,7 @@
       <div class="product-info">
         <p>SKU: PANETAR YELLOW</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('PANETAR YELLOW', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -660,16 +751,17 @@
       <div class="product-info">
         <p>SKU: PAN MAROON</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('PAN MAROON', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--PAN Product 2 -->
+
+    <!-- PAN Product 2 -->
     <div class="product">
       <img src="images/PAN/PAN%20PURPLE.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: PAN PURPLE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('PAN PURPLE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -679,16 +771,17 @@
       <div class="product-info">
         <p>SKU: RANI PURPLE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('RANI PURPLE', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--RANI Product 2 -->
+
+    <!-- RANI Product 2 -->
     <div class="product">
       <img src="images/RANI/RANI%20RED.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: RANI RED</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('RANI RED', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -698,16 +791,17 @@
       <div class="product-info">
         <p>SKU: FLOWER NEVY BLUE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('FLOWER NEVY BLUE', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--FLOWER Product 2 -->
+
+    <!-- FLOWER Product 2 -->
     <div class="product">
       <img src="images/FLOWER/FLOWER%20PINK.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: FLOWER PINK</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('FLOWER PINK', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -717,16 +811,17 @@
       <div class="product-info">
         <p>SKU: SHATKON NEVY BLUE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('SHATKON NEVY BLUE', '₹999')">Order Now</button>
       </div>
     </div>
-    <!--SHATKON Product 2 -->
+
+    <!-- SHATKON Product 2 -->
     <div class="product">
       <img src="images/SHATKON/SHATKON%20PURPLE.jpeg" alt="Product 2">
       <div class="product-info">
         <p>SKU: SHATKON PURPLE</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('SHATKON PURPLE', '₹999')">Order Now</button>
       </div>
     </div>
 
@@ -736,20 +831,65 @@
       <div class="product-info">
         <p>SKU: ELEPHANT RED</p>
         <p class="price">₹999</p>
-        <a class="order-btn" target="_blank">Order Now</a>
+        <button class="order-btn" onclick="openPopup('ELEPHANT RED', '₹999')">Order Now</button>
       </div>
     </div>
 
+
   </div>
 </div>
-
+<!-- Popup -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h2>Order Details</h2>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" placeholder="Enter your name">
+    </div>
+    <div class="form-group">
+      <label for="address">Full Address</label>
+      <input type="text" id="address" placeholder="Enter your address">
+    </div>
+    <div class="form-group">
+      <label for="landmark">Landmark</label>
+      <input type="text" id="landmark" placeholder="Enter landmark">
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" id="city" placeholder="Enter city">
+    </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      <input type="text" id="state" placeholder="Enter state">
+    </div>
+    <div class="form-group">
+      <label for="pincode">Pincode</label>
+      <input type="text" id="pincode" placeholder="Enter pincode">
+    </div>
+    <div class="form-group">
+      <label for="mobileNum">Mobile Number</label>
+      <input type="text" id="mobileNum" placeholder="Enter mobile number">
+    </div>
+    <div class="form-group">
+      <label for="delivery">Order Delivery</label>
+      <select id="delivery">
+        <option value="1">Cash On Delivery (+₹100 Extra)</option>
+        <option value="2">Online Payment</option>
+      </select>
+    </div>
+    <div class="popup-buttons">
+      <button class="close-btn" onclick="closePopup()">Close</button>
+      <button class="send-btn" id="send-whatsapp">Send to WhatsApp</button>
+    </div>
+  </div>
+</div>
 <script>
   function searchProducts() {
     const input = document.getElementById("search-input").value.toLowerCase();
     const products = document.getElementsByClassName("product");
 
     for (let i = 0; i < products.length; i++) {
-      const productSKU = products[i].getElementsByTagName("p")[0].innerText.toLowerCase(); // First <p> tag contains the SKU
+      const productSKU = products[i].getElementsByTagName("p")[0].innerText.toLowerCase();
       if (productSKU.includes(input)) {
         products[i].style.display = "block";
       } else {
@@ -757,25 +897,33 @@
       }
     }
   }
-</script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const products = document.querySelectorAll(".product");
+  function openPopup(sku, price) {
+    document.getElementById("popup").style.display = "flex";
+    document.getElementById("send-whatsapp").onclick = function () {
+      sendWhatsAppMessage(sku, price);
+    };
+  }
 
-    products.forEach(product => {
-      const sku = product.querySelector(".product-info p").innerText.replace("SKU: ", ""); // Extract SKU
-      const price = product.querySelector(".price").innerText; // Extract price
-      const orderButton = product.querySelector(".order-btn");
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
 
-      // Create the dynamic WhatsApp link
-      const message = `Hi, I am interested in SKU: ${encodeURIComponent(sku)}. It costs ${encodeURIComponent(price)}. Please provide details.`;
+  function sendWhatsAppMessage(sku, price) {
+      const name = document.getElementById("name").value || "N/A";
+      const address = document.getElementById("address").value || "N/A";
+      const landmark = document.getElementById("landmark").value || "N/A";
+      const city = document.getElementById("city").value || "N/A";
+      const state = document.getElementById("state").value || "N/A";
+      const pincode = document.getElementById("pincode").value || "N/A";
+      const mobileNum = document.getElementById("mobileNum").value || "N/A";
+      const delivery = document.getElementById("delivery").value;
+
+      const message = `Hi, I am interested in SKU: ${encodeURIComponent(sku)}. It costs ${encodeURIComponent(price)}.\nDetails:\nName: ${encodeURIComponent(name)}\nFull Address: ${encodeURIComponent(address)}\nLandmark: ${encodeURIComponent(landmark)}\nCity: ${encodeURIComponent(city)}\nState: ${encodeURIComponent(state)}\nPincode: ${encodeURIComponent(pincode)}\nMobile Number: ${encodeURIComponent(mobileNum)}\nOrder Delivery: ${delivery === "1" ? "Cash On Delivery (+₹100 Extra)" : "Online Payment"}`;
       const whatsappLink = `https://wa.me/+919879868265?text=${message}`;
 
-      // Set the href for the "Order Now" button
-      orderButton.href = whatsappLink;
-    });
-  });
+      window.open(whatsappLink, "_blank");
+    }
 </script>
 </body>
 </html>
