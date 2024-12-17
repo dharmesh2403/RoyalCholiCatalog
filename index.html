@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Royal Choli Catalog</title>
+  <title>Clothing Catalog</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -59,60 +59,62 @@
       color: #28a745;
       font-weight: bold;
     }
+    .order-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #25d366;
+      color: white;
+      text-decoration: none;
+      font-size: 1em;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .order-btn:hover {
+      background-color: #20b858;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header">
-      <h1>Royal Choli Catalog</h1>
-    </div>
-    <div class="product-grid">
-      <!-- Product 1 -->
-      <div class="product">
-        <img src="images/1.jpeg" alt="Product 1">
-        <div class="product-info">
-          <h3>Beautiful Dress</h3>
-          <p>SKU: 001</p>
-          <p class="price">₹999</p>
-        </div>
-      </div>
-      <!-- Product 2 -->
-      <div class="product">
-        <img src="images/2.jpeg" alt="Product 2">
-        <div class="product-info">
-          <h3>Stylish Top</h3>
-          <p>SKU: 002</p>
-          <p class="price">₹699</p>
-        </div>
-      </div>
-      <!-- Product 3 -->
-      <div class="product">
-        <img src="images/3.jpeg" alt="Product 3">
-        <div class="product-info">
-          <h3>Casual Shirt</h3>
-          <p>SKU: 003</p>
-          <p class="price">₹499</p>
-        </div>
-      </div>
-      <!-- Product 4 -->
-      <div class="product">
-        <img src="images/4.jpeg" alt="Product 4">
-        <div class="product-info">
-          <h3>Elegant Saree</h3>
-          <p>SKU: 004</p>
-          <p class="price">₹1499</p>
-        </div>
-      </div>
-      <!-- Product 5 -->
-      <div class="product">
-        <img src="images/5.jpeg" alt="Product 5">
-        <div class="product-info">
-          <h3>Denim Jeans</h3>
-          <p>SKU: 005</p>
-          <p class="price">₹899</p>
-        </div>
-      </div>
-    </div>
+<div class="container">
+  <div class="header">
+    <h1>Clothing Catalog</h1>
   </div>
+  <div class="product-grid">
+    <!-- Product 1 -->
+    <div class="product">
+      <img src="images/1.jpeg" alt="Product 1">
+      <div class="product-info">
+        <h3>Beautiful Dress</h3>
+        <p>SKU: 001</p>
+        <p class="price">₹999</p>
+        <a
+                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20001%20(Beautiful%20Dress).%20Please%20provide%20details."
+                class="order-btn"
+                target="_blank"
+        >
+          Order Now
+        </a>
+      </div>
+    </div>
+    <!-- Product 2 -->
+    <div class="product">
+      <img src="images/2.jpeg" alt="Product 2">
+      <div class="product-info">
+        <h3>Stylish Top</h3>
+        <p>SKU: 002</p>
+        <p class="price">₹799</p>
+        <a
+                href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20002%20(Stylish%20Top).%20Please%20provide%20details."
+                class="order-btn"
+                target="_blank"
+        >
+          Order Now
+        </a>
+      </div>
+    </div>
+    <!-- Add more products as needed -->
+  </div>
+</div>
 </body>
 </html>
