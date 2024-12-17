@@ -24,17 +24,6 @@
     .header h1 {
       color: #333;
     }
-    .search-bar {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .search-bar input {
-      padding: 10px;
-      width: 300px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      font-size: 1em;
-    }
     .filter-buttons {
       text-align: center;
       margin-bottom: 20px;
@@ -66,7 +55,6 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       width: 300px;
       text-align: center;
-      display: none; /* Initially hidden */
     }
     .product img {
       width: 100%;
@@ -100,99 +88,87 @@
       transition: background-color 0.3s;
     }
     .order-btn:hover {
-      background-color: #20b858;
+      background-color: #20b354;
     }
   </style>
-  <script>
-    function filterProducts(type) {
-      const products = document.querySelectorAll('.product');
-      const buttons = document.querySelectorAll('.filter-buttons button');
-
-      // Set all buttons to inactive
-      buttons.forEach(button => button.classList.remove('active'));
-
-      // Activate the clicked button
-      document.querySelector(`button[data-type="${type}"]`).classList.add('active');
-
-      // Show/hide products based on the selected type
-      products.forEach(product => {
-        const productType = product.getAttribute('data-type').toLowerCase();
-        if (type === 'all' || productType === type) {
-          product.style.display = 'block';
-        } else {
-          product.style.display = 'none';
-        }
-      });
-    }
-
-    // Initial display of all products when the page loads
-    document.addEventListener('DOMContentLoaded', () => filterProducts('all'));
-  </script>
 </head>
 <body>
 <div class="container">
   <div class="header">
     <h1>Lizzas Shop Royal Choli Catalog</h1>
   </div>
-  <div class="search-bar">
-    <input type="text" id="search-input" placeholder="Search by name or SKU" onkeyup="filterProducts()">
-  </div>
   <div class="filter-buttons">
-    <button onclick="filterProducts('all')" class="active" data-type="all">All</button>
-    <button onclick="filterProducts('sarees')" data-type="sarees">Sarees</button>
-    <button onclick="filterProducts('dress')" data-type="dress">Dress</button>
-    <button onclick="filterProducts('lehenga')" data-type="lehenga">Lehenga</button>
-    <button onclick="filterProducts('kurta')" data-type="kurta">Kurta</button>
+    <button onclick="filterProducts('all')" class="active">All</button>
+    <button onclick="filterProducts('Sarees')">Sarees</button>
+    <button onclick="filterProducts('Dress')">Dress</button>
+    <button onclick="filterProducts('Choli')">Choli</button>
   </div>
   <div class="product-grid">
-    <!-- Example product: -->
-    <div class="product" data-type="sarees">
-      <img src="images/1.jpeg" alt="Saree Image">
+    <div class="product" data-category="Sarees">
+      <img src="images/1.jpeg" alt="Beautiful Saree">
       <div class="product-info">
-        <h3>Saree Name</h3>
-        <p>Description of the saree.</p>
-        <p class="price">$120.00</p>
-        <a href="#" class="order-btn">Order Now</a>
+        <h3>Beautiful Saree</h3>
+        <p class="price">₹1500</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20S001%20(Beautiful%20Saree).%20Please%20provide%20details." class="order-btn" target="_blank">Order Now</a>
       </div>
     </div>
-    <!-- Add more products like above with appropriate data-type and image path -->
-    <div class="product" data-type="dress">
-      <img src="images/2.jpeg" alt="Dress Image">
+    <div class="product" data-category="Dress">
+      <img src="images/2.jpeg" alt="Beautiful Dress">
       <div class="product-info">
-        <h3>Dress Name</h3>
-        <p>Description of the dress.</p>
-        <p class="price">$150.00</p>
-        <a href="#" class="order-btn">Order Now</a>
+        <h3>Beautiful Dress</h3>
+        <p class="price">₹2000</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20D001%20(Beautiful%20Dress).%20Please%20provide%20details." class="order-btn" target="_blank">Order Now</a>
       </div>
     </div>
-    <div class="product" data-type="lehenga">
-      <img src="images/3.jpeg" alt="Lehenga Image">
+    <div class="product" data-category="Choli">
+      <img src="images/3.jpeg" alt="Elegant Choli">
       <div class="product-info">
-        <h3>Lehenga Name</h3>
-        <p>Description of the lehenga.</p>
-        <p class="price">$180.00</p>
-        <a href="#" class="order-btn">Order Now</a>
+        <h3>Elegant Choli</h3>
+        <p class="price">₹1800</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20C001%20(Elegant%20Choli).%20Please%20provide%20details." class="order-btn" target="_blank">Order Now</a>
       </div>
     </div>
-    <div class="product" data-type="lehenga">
-      <img src="images/4.jpeg" alt="Lehenga Image">
+    <div class="product" data-category="Sarees">
+      <img src="images/4.jpeg" alt="Designer Saree">
       <div class="product-info">
-        <h3>Lehenga Name</h3>
-        <p>Description of the lehenga.</p>
-        <p class="price">$180.00</p>
-        <a href="#" class="order-btn">Order Now</a>
+        <h3>Designer Saree</h3>
+        <p class="price">₹2500</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20S002%20(Designer%20Saree).%20Please%20provide%20details." class="order-btn" target="_blank">Order Now</a>
       </div>
     </div>
-    <div class="product" data-type="kurta">
-      <img src="images/5.jpeg" alt="Kurta Image">
+    <div class="product" data-category="Dress">
+      <img src="images/5.jpeg" alt="Party Wear Dress">
       <div class="product-info">
-        <h3>Kurta Name</h3>
-        <p>Description of the kurta.</p>
-        <p class="price">$110.00</p>
-        <a href="#" class="order-btn">Order Now</a>
+        <h3>Party Wear Dress</h3>
+        <p class="price">₹3000</p>
+        <a href="https://wa.me/+919879868265?text=Hi,%20I%20am%20interested%20in%20SKU%20D002%20(Party%20Wear%20Dress).%20Please%20provide%20details." class="order-btn" target="_blank">Order Now</a>
       </div>
     </div>
   </div>
 </div>
+<script>
+  function filterProducts(category) {
+    const buttons = document.querySelectorAll('.filter-buttons button');
+    const products = document.querySelectorAll('.product');
+
+    buttons.forEach(button => {
+      button.classList.remove('active');
+      if (button.textContent === category || (category === 'all' && button.textContent === 'All')) {
+        button.classList.add('active');
+      }
+    });
+
+    products.forEach(product => {
+      if (category === 'all' || product.getAttribute('data-category') === category) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  }
+
+  // Show all products on page load
+  window.onload = () => filterProducts('all');
+</script>
 </body>
 </html>
