@@ -156,10 +156,22 @@
         line-height: 1.5; /* Improves readability with better line spacing */
       }
 
-   .description li strong {
-        width: 150px; /* Set a consistent width for the label */
-        display: inline-block; /* Aligns labels uniformly */
+       .description li strong {
+            width: 150px; /* Set a consistent width for the label */
+            display: inline-block; /* Aligns labels uniformly */
+          }
+        /* Make each checkbox and label appear on a new line */
+      label {
+          display: block; /* Forces each label to take up a new line */
+          margin-bottom: 10px; /* Adds space between checkboxes */
+          font-size: 14px; /* Optional: Adjusts the font size */
       }
+
+      /* Optional: Style the input checkboxes */
+      input[type="checkbox"] {
+          margin-right: 8px; /* Adds space between checkbox and label text */
+      }
+
   </style>
 </head>
 <body>
@@ -177,6 +189,7 @@
   <label><input type="checkbox" id="choli-filter" onclick="searchProducts()"> Choli</label>
   <label><input type="checkbox" id="heavy-choli-filter" onclick="searchProducts()"> Heavy Choli</label>
   <label><input type="checkbox" id="combo-filter" onclick="searchProducts()"> Combo</label>
+
 
   <div class="product-grid" id="product-grid">
     <!-- BANDHANI Products 1-->
