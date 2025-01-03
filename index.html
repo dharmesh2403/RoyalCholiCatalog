@@ -168,8 +168,16 @@
     <h1>Royal Choli Catalog</h1>
   </div>
   <div class="search-bar">
-    <input type="text" id="search-input" placeholder="Search by SKU..." onkeyup="searchProducts()">
+    <input type="text" id="search-input" oninput="searchProducts()" placeholder="Search Products...">
   </div>
+
+  <!-- Checkbox Filters -->
+  <label><input type="checkbox" id="kurti-filter" onclick="searchProducts()"> Kurti</label>
+  <label><input type="checkbox" id="gown-filter" onclick="searchProducts()"> Gown</label>
+  <label><input type="checkbox" id="choli-filter" onclick="searchProducts()"> Choli</label>
+  <label><input type="checkbox" id="heavy-choli-filter" onclick="searchProducts()"> Heavy Choli</label>
+  <label><input type="checkbox" id="combo-filter" onclick="searchProducts()"> Combo</label>
+
   <div class="product-grid" id="product-grid">
     <!-- BANDHANI Products 1-->
     <div class="product">
@@ -1316,9 +1324,27 @@
     const input = document.getElementById("search-input").value.toLowerCase();
     const products = document.getElementsByClassName("product");
 
+    // Get the state of each checkbox filter
+    const isKurtiChecked = document.getElementById("kurti-filter").checked;
+    const isGownChecked = document.getElementById("gown-filter").checked;
+    const isCholiChecked = document.getElementById("choli-filter").checked;
+    const isHeavyCholiChecked = document.getElementById("heavy-choli-filter").checked;
+    const isComboChecked = document.getElementById("combo-filter").checked;
+
     for (let i = 0; i < products.length; i++) {
-      const productSKU = products[i].getElementsByTagName("p")[0].innerText.toLowerCase();
-      if (productSKU.includes(input)) {
+      const productText = products[i].getElementsByTagName("p")[0].innerText.toLowerCase();
+
+      // Check if the product matches the search input and the selected filters
+      const matchesSearch = productText.includes(input);
+      const matchesCategory =
+        (isKurtiChecked && productText.includes("kurti")) ||
+        (isGownChecked && productText.includes("gown")) ||
+        (isCholiChecked && productText.includes("choli")) ||
+        (isHeavyCholiChecked && productText.includes("heavy choli")) ||
+        (isComboChecked && productText.includes("combo"));
+
+      // Display product if it matches both the search input and the selected filters
+      if (matchesSearch && (isKurtiChecked || isGownChecked || isCholiChecked || isHeavyCholiChecked || isComboChecked) ? matchesCategory : true) {
         products[i].style.display = "block";
       } else {
         products[i].style.display = "none";
@@ -1326,33 +1352,34 @@
     }
   }
 
-  function openPopup(sku, price) {
-    document.getElementById("popup").style.display = "flex";
-    document.getElementById("send-whatsapp").onclick = function () {
-      sendWhatsAppMessage(sku, price);
-    };
+
+    function openPopup(sku, price) {
+      document.getElementById("popup").style.display = "flex";
+      document.getElementById("send-whatsapp").onclick = function () {
+        sendWhatsAppMessage(sku, price);
+      };
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+  function sendWhatsAppMessage(sku, price) {
+      const name = document.getElementById("name").value || "N/A";
+      const address = document.getElementById("address").value || "N/A";
+      const landmark = document.getElementById("landmark").value || "N/A";
+      const city = document.getElementById("city").value || "N/A";
+      const state = document.getElementById("state").value || "N/A";
+      const pincode = document.getElementById("pincode").value || "N/A";
+      const mobileNum = document.getElementById("mobileNum").value || "N/A";
+      const delivery = document.getElementById("delivery").value;
+
+      const message = `Hi, I am interested in SKU: ${encodeURIComponent(sku)}. It costs ${encodeURIComponent(price)}.\n\nDetails:\n          *Name*: ${encodeURIComponent(name)}\n          *Full Address*: ${encodeURIComponent(address)}\n          *Landmark*: ${encodeURIComponent(landmark)}\n          *City*: ${encodeURIComponent(city)}\n          *State*: ${encodeURIComponent(state)}\n          *Pincode*: ${encodeURIComponent(pincode)}\n          *Mobile Number*: ${encodeURIComponent(mobileNum)}\n          *Order Delivery*: ${delivery === "1" ? "Cash On Delivery (+₹100 Extra)" : "Online Payment"}`;
+
+      const whatsappLink = `https://wa.me/+919879868265?text=${message}`;
+
+      window.open(whatsappLink, "_blank");
   }
-
-  function closePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-
-function sendWhatsAppMessage(sku, price) {
-    const name = document.getElementById("name").value || "N/A";
-    const address = document.getElementById("address").value || "N/A";
-    const landmark = document.getElementById("landmark").value || "N/A";
-    const city = document.getElementById("city").value || "N/A";
-    const state = document.getElementById("state").value || "N/A";
-    const pincode = document.getElementById("pincode").value || "N/A";
-    const mobileNum = document.getElementById("mobileNum").value || "N/A";
-    const delivery = document.getElementById("delivery").value;
-
-    const message = `Hi, I am interested in SKU: ${encodeURIComponent(sku)}. It costs ${encodeURIComponent(price)}.\n\nDetails:\n          *Name*: ${encodeURIComponent(name)}\n          *Full Address*: ${encodeURIComponent(address)}\n          *Landmark*: ${encodeURIComponent(landmark)}\n          *City*: ${encodeURIComponent(city)}\n          *State*: ${encodeURIComponent(state)}\n          *Pincode*: ${encodeURIComponent(pincode)}\n          *Mobile Number*: ${encodeURIComponent(mobileNum)}\n          *Order Delivery*: ${delivery === "1" ? "Cash On Delivery (+₹100 Extra)" : "Online Payment"}`;
-
-    const whatsappLink = `https://wa.me/+919879868265?text=${message}`;
-
-    window.open(whatsappLink, "_blank");
-}
 
 
 
